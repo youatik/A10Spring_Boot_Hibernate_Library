@@ -26,7 +26,7 @@ public class Client {
 
 
    @OneToMany(mappedBy = "clientByClientId")
-
+   @JsonIgnore
    private Collection<ClientOrder> clientOrdersByClientId;
     @OneToMany(mappedBy = "clientByClientId")
     @JsonIgnore
