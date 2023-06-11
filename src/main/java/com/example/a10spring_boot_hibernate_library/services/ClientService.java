@@ -11,9 +11,9 @@ import java.util.Optional;
 @Service
 @Transactional
 public class ClientService {
-    @Autowired
-    private final ClientRepository clientRepository;
 
+    private final ClientRepository clientRepository;
+    @Autowired
     public ClientService(ClientRepository clientRepository) {
         this.clientRepository = clientRepository;
     }

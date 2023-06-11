@@ -20,14 +20,12 @@ public class ClientController {
     }
 
     @GetMapping
-    public Client getSingleClient() {
+    public List<Client> getAllClients() {
         List<Client> clients = clientService.getAllClients();
-        if (!clients.isEmpty()) {
-            Client firstClient = clients.get(0);  // Get the first client
-            System.out.println(firstClient.toString());
-            return firstClient;
-        } else {
-            return null;  // or handle the case when there are no clients
+        List<Client> firstClient = clients.subList(0, 10);  // Extract the first client
+        for (Client client : firstClient) {
+            System.out.println(client.toString());
         }
+        return firstClient;
     }
 }

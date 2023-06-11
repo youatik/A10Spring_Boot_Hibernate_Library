@@ -1,5 +1,6 @@
 package com.example.a10spring_boot_hibernate_library.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -24,15 +25,19 @@ public class Client {
     private String address;
 
 
-   /* @OneToMany(mappedBy = "clientByClientId")
-    private Collection<ClientOrder> clientOrdersByClientId;
+   @OneToMany(mappedBy = "clientByClientId")
+
+   private Collection<ClientOrder> clientOrdersByClientId;
     @OneToMany(mappedBy = "clientByClientId")
+    @JsonIgnore
     private Collection<Payment> paymentsByClientId;
     @OneToMany(mappedBy = "clientByClientId")
+    @JsonIgnore
     private Collection<ShoppingCart> shoppingCartsByClientId;
     @OneToOne(mappedBy = "clientByClientId")
+    @JsonIgnore
     private UserAuthentication userAuthenticationByClientId;
-*/
+
     public int getClientId() {
         return clientId;
     }
@@ -98,7 +103,7 @@ public class Client {
         result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
     }
-/*
+
     public Collection<ClientOrder> getClientOrdersByClientId() {
         return clientOrdersByClientId;
     }
@@ -129,5 +134,5 @@ public class Client {
 
     public void setUserAuthenticationByClientId(UserAuthentication userAuthenticationByClientId) {
         this.userAuthenticationByClientId = userAuthenticationByClientId;
-    }*/
+    }
 }
