@@ -1,4 +1,4 @@
-package entities;
+package com.example.a10spring_boot_hibernate_library.entities;
 
 import jakarta.persistence.*;
 
@@ -22,7 +22,7 @@ public class ClientOrder {
     @Column(name = "totalAmount", nullable = true, precision = 2)
     private BigDecimal totalAmount;
     @ManyToOne
-    @JoinColumn(name = "clientId", referencedColumnName = "clientId")
+    @JoinColumn(name = "clientId", referencedColumnName = "clientId", insertable = false, updatable = false)
     private Client clientByClientId;
     @OneToMany(mappedBy = "clientOrderByOrderId")
     private Collection<OrderItem> orderItemsByOrderId;

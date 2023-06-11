@@ -1,4 +1,4 @@
-package entities;
+package com.example.a10spring_boot_hibernate_library.entities;
 
 import jakarta.persistence.*;
 
@@ -22,7 +22,9 @@ public class Client {
     @Basic
     @Column(name = "address", nullable = false, length = 200)
     private String address;
-    @OneToMany(mappedBy = "clientByClientId")
+
+
+   /* @OneToMany(mappedBy = "clientByClientId")
     private Collection<ClientOrder> clientOrdersByClientId;
     @OneToMany(mappedBy = "clientByClientId")
     private Collection<Payment> paymentsByClientId;
@@ -30,7 +32,7 @@ public class Client {
     private Collection<ShoppingCart> shoppingCartsByClientId;
     @OneToOne(mappedBy = "clientByClientId")
     private UserAuthentication userAuthenticationByClientId;
-
+*/
     public int getClientId() {
         return clientId;
     }
@@ -96,7 +98,7 @@ public class Client {
         result = 31 * result + (address != null ? address.hashCode() : 0);
         return result;
     }
-
+/*
     public Collection<ClientOrder> getClientOrdersByClientId() {
         return clientOrdersByClientId;
     }
@@ -127,5 +129,5 @@ public class Client {
 
     public void setUserAuthenticationByClientId(UserAuthentication userAuthenticationByClientId) {
         this.userAuthenticationByClientId = userAuthenticationByClientId;
-    }
+    }*/
 }

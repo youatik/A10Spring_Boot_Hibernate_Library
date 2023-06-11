@@ -1,4 +1,4 @@
-package entities;
+package com.example.a10spring_boot_hibernate_library.entities;
 
 import jakarta.persistence.*;
 
@@ -26,10 +26,10 @@ public class OrderItem {
     @Column(name = "clientId", nullable = true)
     private Integer clientId;
     @ManyToOne
-    @JoinColumn(name = "orderId", referencedColumnName = "orderId")
+    @JoinColumn(name = "orderId", referencedColumnName = "orderId", insertable = false, updatable = false)
     private ClientOrder clientOrderByOrderId;
     @ManyToOne
-    @JoinColumn(name = "ean_isbn13", referencedColumnName = "ean_isbn13")
+    @JoinColumn(name = "ean_isbn13", referencedColumnName = "ean_isbn13", insertable = false, updatable = false)
     private Library libraryByEanIsbn13;
 
     public int getId() {

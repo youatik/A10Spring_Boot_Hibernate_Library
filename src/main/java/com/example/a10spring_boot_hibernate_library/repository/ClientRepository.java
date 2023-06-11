@@ -1,6 +1,6 @@
-package repository;
+package com.example.a10spring_boot_hibernate_library.repository;
 
-import entities.Client;
+import com.example.a10spring_boot_hibernate_library.entities.Client;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
