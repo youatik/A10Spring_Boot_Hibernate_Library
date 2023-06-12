@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>Client Orders</title>
+</head>
+<body>
+<h1>Client Orders</h1>
+
+<table>
+  <thead>
+  <tr>
+    <th>Order ID</th>
+    <th>Order Date</th>
+    <!-- Add more columns as needed -->
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="order : ${orders}">
+    <td th:text="${order.orderId}"></td>
+    <td th:text="${order.orderDate}"></td>
+    <!-- Add more columns as needed -->
+  </tr>
+  </tbody>
+</table>
+</body>
+</html>
