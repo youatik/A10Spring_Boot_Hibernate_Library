@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
 public class ClientEditController {
@@ -19,13 +20,13 @@ public class ClientEditController {
         this.clientService = clientService;
     }
 
-    @GetMapping("/editclient/{id}")
-    public String getEditClientForm(@PathVariable("id") Integer id, Model model) {
-        Client client = clientService.getClientById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid client ID: " + id));
+    @GetMapping("/editclient")
+    public String editClient(@RequestParam("id") Integer clientId, Model model) {
+        Client client = clientService.getClientById(clientId)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid client ID: " + clientId));
 
         model.addAttribute("client", client);
-        return "edit-client";
+        return "update-client";
     }
 
     @PostMapping("/updateclient")
