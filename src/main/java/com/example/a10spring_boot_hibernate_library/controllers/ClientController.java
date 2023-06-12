@@ -26,7 +26,6 @@ public class ClientController {
     }
 
 
-
     @GetMapping
     public String getAllClients(Model model) {
         List<Client> clients = clientService.getAllClients();

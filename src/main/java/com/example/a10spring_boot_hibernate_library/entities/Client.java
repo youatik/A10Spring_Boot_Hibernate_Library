@@ -25,9 +25,9 @@ public class Client {
     private String address;
 
 
-   @OneToMany(mappedBy = "clientByClientId")
-   @JsonIgnore
-   private Collection<ClientOrder> clientOrdersByClientId;
+    @OneToMany(mappedBy = "clientByClientId")
+    @JsonIgnore
+    private Collection<ClientOrder> clientOrdersByClientId;
     @OneToMany(mappedBy = "clientByClientId")
     @JsonIgnore
     private Collection<Payment> paymentsByClientId;

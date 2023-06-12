@@ -30,6 +30,7 @@ public class ClientOrdersController {
                 .orElseThrow(() -> new RuntimeException("Client not found"));
 
         List<ClientOrder> orders = (List<ClientOrder>) client.getClientOrdersByClientId();
+        model.addAttribute("client", client);
         model.addAttribute("orders", orders);
 
         return "clientorders";
