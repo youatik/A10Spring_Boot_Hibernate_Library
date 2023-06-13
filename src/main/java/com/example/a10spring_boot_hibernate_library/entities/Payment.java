@@ -1,4 +1,4 @@
-package entities;
+package com.example.a10spring_boot_hibernate_library.entities;
 
 import jakarta.persistence.*;
 
@@ -20,7 +20,7 @@ public class Payment {
     @Column(name = "expiration", nullable = false)
     private Date expiration;
     @ManyToOne
-    @JoinColumn(name = "clientId", referencedColumnName = "clientId", nullable = false)
+    @JoinColumn(name = "clientId", referencedColumnName = "clientId", nullable = false, insertable=false, updatable=false)
     private Client clientByClientId;
 
     public int getPaymentId() {

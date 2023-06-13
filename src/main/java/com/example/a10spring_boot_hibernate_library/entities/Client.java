@@ -1,5 +1,6 @@
-package entities;
+package com.example.a10spring_boot_hibernate_library.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.Collection;
@@ -22,13 +23,19 @@ public class Client {
     @Basic
     @Column(name = "address", nullable = false, length = 200)
     private String address;
+
+
     @OneToMany(mappedBy = "clientByClientId")
+    @JsonIgnore
     private Collection<ClientOrder> clientOrdersByClientId;
     @OneToMany(mappedBy = "clientByClientId")
+    @JsonIgnore
     private Collection<Payment> paymentsByClientId;
     @OneToMany(mappedBy = "clientByClientId")
+    @JsonIgnore
     private Collection<ShoppingCart> shoppingCartsByClientId;
     @OneToOne(mappedBy = "clientByClientId")
+    @JsonIgnore
     private UserAuthentication userAuthenticationByClientId;
 
     public int getClientId() {
