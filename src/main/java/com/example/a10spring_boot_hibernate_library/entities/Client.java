@@ -1,11 +1,13 @@
 package com.example.a10spring_boot_hibernate_library.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.util.Collection;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "clientId")
 public class Client {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
@@ -26,16 +28,12 @@ public class Client {
 
 
     @OneToMany(mappedBy = "clientByClientId")
-    @JsonIgnore
     private Collection<ClientOrder> clientOrdersByClientId;
     @OneToMany(mappedBy = "clientByClientId")
-    @JsonIgnore
     private Collection<Payment> paymentsByClientId;
     @OneToMany(mappedBy = "clientByClientId")
-    @JsonIgnore
     private Collection<ShoppingCart> shoppingCartsByClientId;
     @OneToOne(mappedBy = "clientByClientId")
-    @JsonIgnore
     private UserAuthentication userAuthenticationByClientId;
 
     public int getClientId() {
