@@ -21,11 +21,16 @@ public class ClientEditController {
 
     @GetMapping("/editclient")
     public String editClient(@RequestParam("id") Integer clientId, Model model) {
-        Client client = clientService.getClientById(clientId)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid client ID: " + clientId));
+        try {
+            Client client = clientService.getClientById(clientId)
+                    .orElseThrow(() -> new IllegalArgumentException("Invalid client ID: " + clientId));
 
-        model.addAttribute("client", client);
-        return "update-client";
+            model.addAttribute("client", client);
+            return "update-client";
+        } catch (IllegalArgumentException e) {
+            // Redirect to the "/error" mapping with the error message
+            return "redirect:/invalid?message=" + e.getMessage();
+        }
     }
 
     @PostMapping("/updateclient")
