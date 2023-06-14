@@ -1,11 +1,14 @@
 package com.example.a10spring_boot_hibernate_library.entities;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Collection;
 
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "eanIsbn13")
 @Entity
 public class Library {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
