@@ -19,11 +19,15 @@
   <tbody>
   <tr th:each="book : ${books}">
     <td th:text="${book.title}"></td>
-    <td th:text="${book.author}"></td>
+    <td th:text="${book.creators}"></td>
     <td th:text="${book.publisher}"></td>
     <td th:text="${book.description}"></td>
   </tr>
   </tbody>
 </table>
+
+<!-- Display the number of results -->
+<p>Total Results: <span th:text="${books.size()}"></span></p>
+
 </body>
 </html>

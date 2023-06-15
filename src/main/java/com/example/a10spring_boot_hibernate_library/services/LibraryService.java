@@ -35,4 +35,10 @@ public class LibraryService {
     public void updateBook(Library book) {
         libraryRepository.save(book);
     }
+
+
+    public List<Library> searchBooksByPublishersAndDescription(String searchTerm, List<String> publishers) {
+        return libraryRepository.findByPublisherInAndDescriptionContaining(publishers, searchTerm);
+    }
+
 }

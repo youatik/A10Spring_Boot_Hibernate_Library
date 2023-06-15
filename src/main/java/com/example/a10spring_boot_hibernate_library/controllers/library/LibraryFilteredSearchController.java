@@ -6,28 +6,28 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import java.util.List;
 
-@Controller
-public class LibraryController {
 
+@Controller
+public class LibraryFilteredSearchController {
     private LibraryService libraryService;
 
     @Autowired
-    public LibraryController(LibraryService libraryService) {
+    public void LibraryController(LibraryService libraryService) {
         this.libraryService = libraryService;
     }
 
-    @GetMapping("/")
-    public String index() {
-        return "index";
+    @GetMapping("/search")
+    public String searchBooks(@RequestParam("searchTerm") String searchTerm,
+                              @RequestParam("publishers") List<String> publishers,
+                              Model model) {
+        List<Library> books = libraryService.searchBooksByPublishersAndDescription(searchTerm, publishers);
+        model.addAttribute("books", books);
+        return "results";
     }
 
-    @GetMapping("/all-books")
-    public String getAllBooks(Model model) {
-        List<Library> books = libraryService.getAllBooks();
-        model.addAttribute("books", books);
-        return "all-books";
-    }
+    // Other controller methods...
 }
