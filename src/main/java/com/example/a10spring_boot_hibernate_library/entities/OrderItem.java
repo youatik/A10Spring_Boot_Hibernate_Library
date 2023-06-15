@@ -1,10 +1,13 @@
 package com.example.a10spring_boot_hibernate_library.entities;
 
-import jakarta.persistence.*;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import jakarta.persistence.*;
 import java.math.BigDecimal;
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "id")
 public class OrderItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
