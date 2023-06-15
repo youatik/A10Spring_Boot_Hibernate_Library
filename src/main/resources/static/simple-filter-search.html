@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Search Books</title>
+</head>
+<body>
+<h2>Search Books</h2>
+
+<form action="/books/search" method="get">
+  <label for="searchTerm">Search Term:</label>
+  <input type="text" id="searchTerm" name="searchTerm">
+
+  <label for="publisher">Publishers:</label>
+  <select id="publisher" name="publishers" multiple>
+    <option value="Pearson">Pearson</option>
+    <option value="Wiley">Wiley</option>
+    <option value="Prentice Hall">Prentice Hall</option>
+    <option value="Addison-Wesley">Addison-Wesley</option>
+  </select>
+
+  <button type="submit">Search</button>
+</form>
+</body>
+</html>
