@@ -1,8 +1,8 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html>
 <head>
   <meta charset="UTF-8">
-  <title>Library Management</title>
+  <title>Index Page</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
   <style>
     .container {
@@ -12,15 +12,12 @@
 </head>
 <body>
 <div class="container">
-  <h2>Library Management</h2>
-  <button class="btn btn-primary" onclick="showAllBooks()">Show All Books</button>
-</div>
+  <h1>Welcome to the Clients Page</h1>
 
-<script>
-  function showAllBooks() {
-    window.location.href = "/all-books";
-  }
-</script>
+  <form action="/clients" method="get">
+    <button type="submit" class="btn btn-primary">Show All Clients</button>
+  </form>
+</div>
 
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>

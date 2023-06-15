@@ -3,23 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Search Books</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .search-container {
+      max-width: 33%;
+      margin: auto;
+    }
+  </style>
 </head>
 <body>
-<h2>Search Books</h2>
+<div class="container">
+  <div class="search-container">
+    <h2>Search Books</h2>
 
-<form action="/search" method="get">
-  <label for="searchTerm">Search Term:</label>
-  <input type="text" id="searchTerm" name="searchTerm" required>
+    <form action="/search" method="get">
+      <div class="form-group">
+        <label for="searchTerm">Search Term:</label>
+        <input type="text" class="form-control" id="searchTerm" name="searchTerm" required>
+      </div>
 
-  <label for="publisher">Publishers:</label>
-  <select id="publisher" name="publishers" required>
-    <option value="Pearson">Pearson</option>
-    <option value="Wiley">Wiley</option>
-    <option value="Prentice Hall">Prentice Hall</option>
-    <option value="Addison-Wesley">Addison-Wesley</option>
-  </select>
+      <div class="form-group">
+        <label for="publisher">Publishers:</label>
+        <select class="form-control" id="publisher" name="publishers" required>
+          <option value="Pearson">Pearson</option>
+          <option value="Wiley">Wiley</option>
+          <option value="Prentice Hall">Prentice Hall</option>
+          <option value="Addison-Wesley">Addison-Wesley</option>
+        </select>
+      </div>
 
-  <button type="submit">Search</button>
-</form>
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+  </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

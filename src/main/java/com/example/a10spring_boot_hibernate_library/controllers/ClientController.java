@@ -29,7 +29,7 @@ public class ClientController {
     @GetMapping
     public String getAllClients(Model model) {
         List<Client> clients = clientService.getAllClients();
-        List<Client> firstClients = clients.subList(0, Math.min(clients.size(), 10));
+        List<Client> firstClients = clients.subList(0, Math.min(clients.size(), 100));
         model.addAttribute("clients", firstClients);
         return "clients";
     }

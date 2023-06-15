@@ -3,31 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <title>Search Results</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    .container {
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
-<h2>Search Results</h2>
+<div class="container">
+  <h2>Search Results</h2>
 
-<table>
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Author</th>
-    <th>Publisher</th>
-    <th>Description</th>
-  </tr>
-  </thead>
-  <tbody>
-  <tr th:each="book : ${books}">
-    <td th:text="${book.title}"></td>
-    <td th:text="${book.creators}"></td>
-    <td th:text="${book.publisher}"></td>
-    <td th:text="${book.description}"></td>
-  </tr>
-  </tbody>
-</table>
+  <table class="table">
+    <thead class="thead-light">
+    <tr>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Publisher</th>
+      <th>Description</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="book : ${books}">
+      <td th:text="${book.title}"></td>
+      <td th:text="${book.creators}"></td>
+      <td th:text="${book.publisher}"></td>
+      <td th:text="${book.description}"></td>
+    </tr>
+    </tbody>
+  </table>
 
-<!-- Display the number of results -->
-<p>Total Results: <span th:text="${books.size()}"></span></p>
+  <!-- Display the number of results -->
+  <p>Total Results: <span th:text="${books.size()}"></span></p>
+</div>
 
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
