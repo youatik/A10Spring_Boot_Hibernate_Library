@@ -10,7 +10,11 @@ import java.util.List;
 public interface LibraryRepository extends JpaRepository <Library, Long> {
     // You can add custom query methods here if needed
     List<Library> findByPublisherInAndDescriptionContaining(List<String> publishers, String searchTerm);
-
+    List<Library> findByTitleContainingOrDescriptionContaining(String title, String description);
+    List<Library> findByLengthLessThan(int maxLength);
+    List<Library> findByLengthGreaterThan(int minLength);
+    List<Library> findByLengthBetween(int minLength, int maxLength);
+    void deleteByEanIsbn13(long eanIsbn13);
 
 }
 

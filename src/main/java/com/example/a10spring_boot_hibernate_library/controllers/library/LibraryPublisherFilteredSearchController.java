@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @Controller
-public class LibraryFilteredSearchController {
+public class LibraryPublisherFilteredSearchController {
     private LibraryService libraryService;
 
     @Autowired

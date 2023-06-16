@@ -41,4 +41,23 @@ public class LibraryService {
         return libraryRepository.findByPublisherInAndDescriptionContaining(publishers, searchTerm);
     }
 
+    public List<Library> searchBooksByTitleAndDescription(String searchTerm) {
+        return libraryRepository.findByTitleContainingOrDescriptionContaining(searchTerm, searchTerm);
+    }
+
+    public List<Library> searchBooksByLengthLessThan(int maxLength) {
+        return libraryRepository.findByLengthLessThan(maxLength);
+    }
+
+    public List<Library> searchBooksByLengthGreaterThan(int minLength) {
+        return libraryRepository.findByLengthGreaterThan(minLength);
+    }
+
+    public List<Library> searchBooksByLengthBetween(int minLength, int maxLength) {
+        return libraryRepository.findByLengthBetween(minLength, maxLength);
+    }
+
+    public void deleteBookByEanIsbn13(long eanIsbn13) {
+        libraryRepository.deleteById(eanIsbn13);
+    }
 }
