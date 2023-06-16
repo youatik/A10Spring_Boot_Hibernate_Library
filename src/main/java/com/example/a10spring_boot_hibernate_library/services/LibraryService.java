@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,4 +63,14 @@ public class LibraryService {
     public void deleteBookByEanIsbn13(long eanIsbn13) {
         libraryRepository.deleteById(eanIsbn13);
     }
+
+    public List<Library> searchBooksByPriceAndTerm(BigDecimal maxPrice, String searchTerm) {
+        return libraryRepository.findByPriceLessThanAndDescriptionContaining(maxPrice, searchTerm);
+    }
+
+    public List<Library> searchBooksByPriceMoreThanAndTerm(BigDecimal minPrice, String searchTerm) {
+        return libraryRepository.findByPriceGreaterThanAndDescriptionContaining(minPrice, searchTerm);
+    }
+
+
 }
