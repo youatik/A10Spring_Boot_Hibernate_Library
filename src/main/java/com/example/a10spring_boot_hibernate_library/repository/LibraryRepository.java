@@ -14,6 +14,11 @@ public interface LibraryRepository extends JpaRepository <Library, Long> {
     List<Library> findByLengthLessThan(int maxLength);
     List<Library> findByLengthGreaterThan(int minLength);
     List<Library> findByLengthBetween(int minLength, int maxLength);
+
+    List<Library> findByLengthLessThanAndDescriptionContaining(int maxLength, String searchTerm);
+
+    List<Library> findByLengthGreaterThanAndDescriptionContaining(int maxLength, String searchTerm);
+
     void deleteByEanIsbn13(long eanIsbn13);
 
 }

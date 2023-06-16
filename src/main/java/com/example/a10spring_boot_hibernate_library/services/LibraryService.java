@@ -45,12 +45,14 @@ public class LibraryService {
         return libraryRepository.findByTitleContainingOrDescriptionContaining(searchTerm, searchTerm);
     }
 
-    public List<Library> searchBooksByLengthLessThan(int maxLength) {
-        return libraryRepository.findByLengthLessThan(maxLength);
+
+
+    public List<Library> searchBooksByLengthAndTerm(int maxLength, String searchTerm) {
+        return libraryRepository.findByLengthLessThanAndDescriptionContaining(maxLength, searchTerm);
     }
 
-    public List<Library> searchBooksByLengthGreaterThan(int minLength) {
-        return libraryRepository.findByLengthGreaterThan(minLength);
+    public List<Library> searchBooksByLengthAndTermMore(int maxLength, String searchTerm) {
+        return libraryRepository.findByLengthGreaterThanAndDescriptionContaining(maxLength, searchTerm);
     }
 
     public List<Library> searchBooksByLengthBetween(int minLength, int maxLength) {

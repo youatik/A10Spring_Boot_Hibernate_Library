@@ -28,13 +28,13 @@ public class LibraryLengthFilteredSearchController {
         if (length != null) {
             switch (length) {
                 case "lessThan250":
-                    books = libraryService.searchBooksByLengthLessThan(250, searchTerm);
+                    books = libraryService.searchBooksByLengthAndTerm(250, searchTerm);
                     break;
                 case "lessThan500":
-                    books = libraryService.searchBooksByLengthLessThan(500, searchTerm);
+                    books = libraryService.searchBooksByLengthAndTerm(500, searchTerm);
                     break;
                 case "moreThan500":
-                    books = libraryService.searchBooksByLengthGreaterThan(500, searchTerm);
+                    books = libraryService.searchBooksByLengthAndTermMore(500, searchTerm);
                     break;
                 default:
                     books = libraryService.searchBooksByTitleAndDescription(searchTerm);
