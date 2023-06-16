@@ -16,7 +16,7 @@ public class LibraryPublisherFilteredSearchController {
     private LibraryService libraryService;
 
     @Autowired
-    public void LibraryController(LibraryService libraryService) {
+    public void LibraryPublisherFilteredSearchController(LibraryService libraryService) {
         this.libraryService = libraryService;
     }
 

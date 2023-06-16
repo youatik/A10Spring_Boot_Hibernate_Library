@@ -1,4 +1,4 @@
-package com.example.a10spring_boot_hibernate_library.controllers;
+package com.example.a10spring_boot_hibernate_library.controllers.client;
 
 import com.example.a10spring_boot_hibernate_library.entities.Client;
 import com.example.a10spring_boot_hibernate_library.services.ClientService;

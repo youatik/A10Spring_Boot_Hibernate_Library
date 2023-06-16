@@ -1,4 +1,4 @@
-package com.example.a10spring_boot_hibernate_library.controllers;
+package com.example.a10spring_boot_hibernate_library.controllers.client;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

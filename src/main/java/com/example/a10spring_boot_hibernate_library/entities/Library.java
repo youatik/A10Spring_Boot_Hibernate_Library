@@ -42,9 +42,9 @@ public class Library {
     @Basic
     @Column(name = "length", nullable = false)
     private int length;
-    @OneToMany(mappedBy = "libraryByEanIsbn13")
+    @OneToMany(mappedBy = "libraryByEanIsbn13", cascade = CascadeType.REMOVE)
     private Collection<OrderItem> orderItemsByEanIsbn13;
-    @OneToMany(mappedBy = "libraryByEanIsbn13")
+    @OneToMany(mappedBy = "libraryByEanIsbn13", cascade = CascadeType.REMOVE)
     private Collection<ShoppingCart> shoppingCartsByEanIsbn13;
 
     public long getEanIsbn13() {
