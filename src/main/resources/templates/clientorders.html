@@ -16,6 +16,7 @@
       <th>Client ID</th>
       <th>Order Date</th>
       <th>Total Amount</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -24,6 +25,12 @@
       <td th:text="${order.clientId}"></td>
       <td th:text="${order.orderDate}"></td>
       <td th:text="${order.totalAmount}"></td>
+      <td>
+        <form th:action="@{/order-items-by-orderid}" method="get">
+          <input type="hidden" name="orderId" th:value="${order.orderId}" />
+          <button type="submit" class="btn btn-primary">View Order Items</button>
+        </form>
+      </td>
     </tr>
     </tbody>
   </table>

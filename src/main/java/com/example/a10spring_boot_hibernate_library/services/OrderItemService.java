@@ -24,8 +24,8 @@ public class OrderItemService {
         return orderItemRepository.findAll();
     }
 
-    public Optional<OrderItem> getOrderItemById(int id) {
-        return orderItemRepository.findById(id);
+    public List<OrderItem> getOrderItemsByOrderId(int orderId) {
+        return orderItemRepository.findByOrderId(orderId);
     }
 
     public OrderItem saveOrderItem(OrderItem orderItem) {
