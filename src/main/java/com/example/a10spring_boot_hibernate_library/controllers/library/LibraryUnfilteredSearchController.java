@@ -12,21 +12,24 @@ import java.util.List;
 
 
 @Controller
-public class LibraryPublisherFilteredSearchController {
+public class LibraryUnfilteredSearchController {
     private LibraryService libraryService;
 
     @Autowired
-    public void LibraryPublisherFilteredSearchController(LibraryService libraryService) {
+    public void LibraryUnfilteredSearchController(LibraryService libraryService) {
         this.libraryService = libraryService;
     }
 
-    @GetMapping("/search")
-    public String searchBooks(@RequestParam("searchTerm") String searchTerm,
-                              @RequestParam("publishers") List<String> publishers,
-                              Model model) {
-        List<Library> books = libraryService.searchBooksByPublishersAndDescription(searchTerm, publishers);
+    @GetMapping("/search-no-filter")
+    public String searchBooksWithoutFilter(@RequestParam("searchTerm") String searchTerm, Model model) {
+        List<Library> books = libraryService.searchBooksByDescription(searchTerm);
         model.addAttribute("books", books);
         return "results";
     }
 
 }
+
+
+
+
+

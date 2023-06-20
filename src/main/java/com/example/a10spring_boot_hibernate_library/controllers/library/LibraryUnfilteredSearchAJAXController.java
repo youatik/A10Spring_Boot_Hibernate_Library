@@ -7,26 +7,30 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 
 @Controller
-public class LibraryPublisherFilteredSearchController {
+public class LibraryUnfilteredSearchAJAXController {
     private LibraryService libraryService;
 
     @Autowired
-    public void LibraryPublisherFilteredSearchController(LibraryService libraryService) {
+    public void LibraryUnfilteredSearchAJAXController(LibraryService libraryService) {
         this.libraryService = libraryService;
     }
 
-    @GetMapping("/search")
-    public String searchBooks(@RequestParam("searchTerm") String searchTerm,
-                              @RequestParam("publishers") List<String> publishers,
-                              Model model) {
-        List<Library> books = libraryService.searchBooksByPublishersAndDescription(searchTerm, publishers);
-        model.addAttribute("books", books);
-        return "results";
+    @GetMapping("/get-result-count")
+    @ResponseBody
+    public Map<String, Integer> getResultCount(@RequestParam("searchTerm") String searchTerm) {
+        int resultCount = libraryService.getResultCount(searchTerm);
+        Map<String, Integer> response = new HashMap<>();
+        response.put("count", resultCount);
+        return response;
     }
 
 }
+

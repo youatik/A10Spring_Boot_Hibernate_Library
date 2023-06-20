@@ -23,7 +23,9 @@ public interface LibraryRepository extends JpaRepository <Library, Long> {
 
     List<Library> findByPriceLessThanAndDescriptionContaining(BigDecimal maxPrice, String description);
     List<Library> findByPriceGreaterThanAndDescriptionContaining(BigDecimal minPrice, String description);
+    List<Library> findByDescriptionContaining(String searchTerm);
 
+    int countByDescriptionContaining(String searchTerm);
 
 }
 

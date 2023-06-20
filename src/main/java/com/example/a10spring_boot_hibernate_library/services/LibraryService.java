@@ -72,5 +72,13 @@ public class LibraryService {
         return libraryRepository.findByPriceGreaterThanAndDescriptionContaining(minPrice, searchTerm);
     }
 
+    public List<Library> searchBooksByDescription(String searchTerm) {
+        return libraryRepository.findByDescriptionContaining(searchTerm);
+    }
+
+    public int getResultCount(String searchTerm) {
+        return libraryRepository.countByDescriptionContaining(searchTerm);
+    }
+
 
 }
