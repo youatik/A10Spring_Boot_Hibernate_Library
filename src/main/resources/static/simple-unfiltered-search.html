@@ -16,13 +16,13 @@
   <div class="search-container">
     <h2>Search Books</h2>
 
-    <form id="searchForm" method="get">
+    <form id="searchForm" action="/search-no-filter" method="get">
       <div class="form-group">
         <label for="searchTerm">Search Term:</label>
         <input type="text" class="form-control" id="searchTerm" name="searchTerm" required>
       </div>
 
-      <button type="submit" class="btn btn-primary">Search</button>
+      <button type="submit" id="searchButton" class="btn btn-primary">Search</button>
     </form>
 
     <div id="resultCountContainer" style="display: none;">
@@ -44,6 +44,7 @@
         $('#resultCountContainer').hide();
       }
     });
+
   });
 
   function searchBooks(searchTerm) {
