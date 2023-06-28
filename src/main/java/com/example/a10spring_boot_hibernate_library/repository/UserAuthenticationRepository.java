@@ -7,6 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UserAuthenticationRepository extends JpaRepository<UserAuthentication, Integer> {
+    UserAuthentication findByUsername(String username);
     // You can add custom query methods here if needed
 }
 
