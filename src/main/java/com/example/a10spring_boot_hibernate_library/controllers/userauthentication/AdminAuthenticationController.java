@@ -15,15 +15,15 @@ import java.util.Enumeration;
 
 @Controller
 @SessionAttributes("authenticatedClient")
-public class UserAuthenticationController {
+public class AdminAuthenticationController {
     private final UserAuthenticationService userAuthenticationService;
 
     @Autowired
-    public UserAuthenticationController(UserAuthenticationService userAuthenticationService) {
+    public AdminAuthenticationController(UserAuthenticationService userAuthenticationService) {
         this.userAuthenticationService = userAuthenticationService;
     }
 
-    @PostMapping("/login")
+    @PostMapping("/adminlogin")
     public String login(
             @RequestParam("username") String username,
             @RequestParam("password") String password,
@@ -43,12 +43,12 @@ public class UserAuthenticationController {
             System.out.println("User authentication succeeded. Client: " + client.getFirstName());
 
 
-            return "store";  // Redirect to the home page after successful login
+            return "admin";  // Redirect to the home page after successful login
         } else {
             // User authentication failed
             redirectAttributes.addFlashAttribute("error", "Invalid username or password");
             System.out.println("User authentication failed. Invalid username or password.");
-            return "login";  // Redirect back to the login page with an error message
+            return "adminlogin";  // Redirect back to the login page with an error message
         }
     }
 }
