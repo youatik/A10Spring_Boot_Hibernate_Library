@@ -25,7 +25,9 @@
                 <li class="nav-item" th:if="${authenticatedClient != null}">
                     <span id="userFullName" class="nav-link d-flex align-items-center">
                         <span th:text="${authenticatedClient.firstName + ' ' + authenticatedClient.lastName}"></span>
-                        <i class="bi bi-file-person-fill ml-1"></i> <!-- File person fill icon -->
+                        <a href="/shoppingcart" class="ml-2">
+                            <i class="bi bi-cart-fill"></i> <!-- Shopping cart icon -->
+                        </a>
                         <a id="logoutLink" class="nav-link" href="/logoutclient">Logout</a>
                     </span>
                 </li>
